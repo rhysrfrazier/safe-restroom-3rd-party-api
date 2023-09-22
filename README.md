@@ -4,7 +4,7 @@ Public restrooms are the most wide-spread explicitly gendered spaces in the Unit
 The "old-school" way of finding safer establishments or unisex restrooms relied largely on word-of-mouth and trial and error; however, this method is not always be feasible. In order to spread information further in the community, [Refuge Restrooms](https://www.refugerestrooms.org/) has assembled an open-access database of public restrooms safe for use by trans and GNC folx. Many of the items in this database are the result of user submissions.
 ## Aim and Scope of this Project
 This project aims to create a 3rd-party API interface that returns addresses of public restrooms safe for use by trans/GNC folx. Results will include whether the restroom is accessible by persons with disabilities, whether unisex restrooms are available, and whether baby changing stations are available.
-
+## 
 ![mobile-version wireframe for the proposed project, showing user input and submission button and an instance of result "card" layout](https://github.com/rhysrfrazier/safe-restroom-3rd-party-api/assets/140181425/70b32f4b-bae2-4e30-a322-270bbec2a4a9)
 
 ## Anticipated Challenges
