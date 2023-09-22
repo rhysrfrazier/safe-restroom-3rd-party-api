@@ -9,5 +9,5 @@ This project aims to create a 3rd-party API interface that returns addresses of 
 
 ## Anticipated Challenges
 - I would like to show a minimum of 10 results per user query (where ten results are available). Making sure this section of code is concise will likely be challenging for me (but loops will be my friends).
-- I'd like to use checks and exes to indicate whether each result offers accessibility, unisex stalls, and changing stations. Formatting these in CSS and ensuring they can be read by screen-readers will be another challenge.
+- In order to keep the response cards clean and easy to read at a glance, I'd like to use checks and exes to indicate whether each result offers accessibility, unisex stalls, and changing stations. Formatting these in CSS and ensuring they can be read by screen-readers will be another challenge.
 - Based on a test API call in Thunder Client, the returns will take some time to come in. As a stretch goal, I'd like to learn how to add a loading wheel.
