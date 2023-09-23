@@ -1,0 +1,9 @@
+.resultCard{
+    border: solid black;
+    display: flex;
+    
+}
+
+.icon{
+    max-width:1em;
+}
