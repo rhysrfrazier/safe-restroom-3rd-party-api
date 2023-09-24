@@ -1,9 +1,100 @@
+HTML{
+    min-height: 100%;
+}
+
+body{
+    position:relative;
+    color: #1a1b41;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    background-image: linear-gradient(rgb(227 167 178), white, rgb(117, 198, 237));
+    padding-bottom: 3rem;
+    min-height: 85vh;
+}
+
+header{
+    margin:2.5rem 0rem 2.5rem 0rem;
+    padding: .5rem 1rem .5rem 1rem;
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+h1{
+    text-align: center;
+    font-size: 35px;
+}
+
+p{
+    text-align:center;
+    font-size: 18px;
+}
+
+#UI{
+    display:flex;
+    flex-direction:column;
+    margin: 2rem;
+    padding: 0 2rem 0 2rem;
+}
+
+.innerUI{
+    margin: 1rem;
+    min-height: 2.5rem;
+    font-size: 16px;
+}
+
+#submit{
+    border-radius: 7px;
+    border-color: rgba(0, 0, 0, 0.5);
+    margin-bottom:0rem;
+    background-color: rgb(97, 178, 118);
+    font-size: 18px;
+    color: #1a1b41;
+}
+
+#city{
+    margin-top:0;
+}
+
+footer{
+    position: absolute;
+    bottom: 1rem;
+    min-width: 100%;
+    text-align: center;
+}
+
 .resultCard{
-    border: solid black;
-    display: flex;
-    
+    border: solid grey;
+    border-radius: 4px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding:.4em;
+    margin: 2rem 0 2rem 0;
+    background-color: rgba(255, 255, 255, 0.6);
+}
+
+#left{
+    display:flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+#right{
+    display:flex;
+    flex-direction:column;
+    justify-content: space-evenly;
+}
+
+.options{
+    margin:0;
+    padding: .4em;
 }
 
 .icon{
     max-width:1em;
+}
+
+#placeName{
+    margin: 1.2em 0em .2em .5em;
+}
+
+#address{
+    margin: .2em 0em 1.2em .5em;
 }
