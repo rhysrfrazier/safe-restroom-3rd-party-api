@@ -1,6 +1,6 @@
 const submitBtn = document.querySelector("#submit")
 
-function addCard(placeVar, addressVar, accessVar, unisexVar, changingVar){
+function addCard(placeVar, addressVar, accessVar, unisexVar, changingVar) {
     //creating the overall div and setting it's class for styling
     const resultCard = document.createElement("div")
     resultCard.classList.add("resultCard")
@@ -12,12 +12,12 @@ function addCard(placeVar, addressVar, accessVar, unisexVar, changingVar){
     //adding the placeName section and attaching it to left
     const h2 = document.createElement("h2")
     h2.setAttribute("id", "placeName")
-    h2.innerHTML= placeVar
+    h2.innerHTML = placeVar
     left.appendChild(h2)
     //adding the address section and attaching it to left
     const h3 = document.createElement("h3")
     h3.setAttribute("id", "address")
-    h3.innerHTML=addressVar
+    h3.innerHTML = addressVar
     left.appendChild(h3)
     //creating the "right" div and attaching it to the resultCard
     const right = document.createElement("div")
@@ -42,15 +42,37 @@ function addCard(placeVar, addressVar, accessVar, unisexVar, changingVar){
     //add the whole card to the body
     document.body.appendChild(resultCard)
 }
-addCard("Place", "XXXX Place, Charlottesville, VA XXXXX", "not accessible", "yes unisex", "no changing station")
-addCard("Not-house", "6796 Sugar Hollow Rd, Crozet VA 22932", "not accessible", "yes unisex", "no changing station")
+// addCard("Place", "XXXX Place, Charlottesville, VA XXXXX", "not accessible", "yes unisex", "no changing station")
+// addCard("Not-house", "6796 Sugar Hollow Rd, Crozet VA 22932", "not accessible", "yes unisex", "no changing station")
 
 const resultCards = document.querySelectorAll(".resultCard")//this MUST go after the addCard function call to pick up the cards
-console.log(resultCards)
-
-function removeCards(){
-   resultCards.forEach((card) => card.remove())
+function removeCards() {
+    resultCards.forEach((card) => card.remove())
 }
-removeCards()
+// removeCards()
 
+submitBtn.onclick = async () => {
+    removeCards()
+    const cityInput = document.querySelector("#city").value
+    const stateInput = document.querySelector("#state").value
 
+    let geoResult = await axios.get(`https://api.api-ninjas.com/v1/geocoding?city=${cityInput}&country=US&state=${stateInput}`,
+        { headers: { "X-Api-Key": "EwA0oHXQy43xs6jnEsvICQ==5Bj70iJpnMZ8zfSt"}
+        }
+    )
+    const lat = geoResult.data[0].latitude
+    const long = geoResult.data[0].longitude
+
+    const restroomResult = await axios.get(`https://www.refugerestrooms.org/api/v1/restrooms/by_location?lat=${lat}&lng=${long}`)
+
+    for (let i=0 ; i<restroomResult.data.length ; i++){
+        let placeName =restroomResult.data[i].name //string
+        let address = restroomResult.data[i].street //string
+        let accessible = restroomResult.data[i].accessible //bool
+        let unisex = restroomResult.data[i].unisex //bool
+        let changingStation = restroomResult.data[i].changing_table//bool
+
+    }
+
+    console.log(restroomResult)
+}
