@@ -45,14 +45,13 @@ function addCard(placeVar, addressVar, accessVar, unisexVar, changingVar) {
 // addCard("Place", "XXXX Place, Charlottesville, VA XXXXX", "not accessible", "yes unisex", "no changing station")
 // addCard("Not-house", "6796 Sugar Hollow Rd, Crozet VA 22932", "not accessible", "yes unisex", "no changing station")
 
-const resultCards = document.querySelectorAll(".resultCard")//this MUST go after the addCard function call to pick up the cards
 function removeCards() {
+    const resultCards = document.querySelectorAll(".resultCard")
     resultCards.forEach((card) => card.remove())
 }
 // removeCards()
 
 submitBtn.onclick = async () => {
-    removeCards()
     const cityInput = document.querySelector("#city").value
     const stateInput = document.querySelector("#state").value
 
@@ -64,6 +63,8 @@ submitBtn.onclick = async () => {
     const long = geoResult.data[0].longitude
 
     const restroomResult = await axios.get(`https://www.refugerestrooms.org/api/v1/restrooms/by_location?lat=${lat}&lng=${long}`)
+
+    removeCards()
 
     for (let i=0 ; i<restroomResult.data.length ; i++){
         let placeVar =restroomResult.data[i].name //string
@@ -93,5 +94,4 @@ submitBtn.onclick = async () => {
 
         addCard(placeVar, addressVar, accessVar, unisexVar, changingVar)
     }
-
 }
