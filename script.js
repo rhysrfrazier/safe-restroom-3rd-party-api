@@ -66,13 +66,32 @@ submitBtn.onclick = async () => {
     const restroomResult = await axios.get(`https://www.refugerestrooms.org/api/v1/restrooms/by_location?lat=${lat}&lng=${long}`)
 
     for (let i=0 ; i<restroomResult.data.length ; i++){
-        let placeName =restroomResult.data[i].name //string
-        let address = restroomResult.data[i].street //string
+        let placeVar =restroomResult.data[i].name //string
+        let addressVar = restroomResult.data[i].street //string
         let accessible = restroomResult.data[i].accessible //bool
         let unisex = restroomResult.data[i].unisex //bool
         let changingStation = restroomResult.data[i].changing_table//bool
+        let accessVar
+        let unisexVar
+        let changingVar
+        //there has to be a better way to do this next part but for now this will get the job done
+        if(accessible){
+            accessVar = 'Accessible: <img class="icon" src="green_check.svg.png" alt="yes" />'
+        } else {
+            accessVar = 'Accessible: <img class="icon" src="red_x.svg.png" alt="no" />'
+        }
+        if (unisex){
+            unisexVar = 'Unisex: <img class="icon" src="green_check.svg.png" alt="yes" />'
+        } else {
+            unisexVar = 'Unisex: <img class="icon" src="red_x.svg.png" alt="no" />'
+        }
+        if (changingStation){
+            changingVar = 'Changing Station: <img class="icon" src="green_check.svg.png" alt="yes" />'
+        } else {
+            changingVar = 'Changing Station: <img class="icon" src="red_x.svg.png" alt="no" />'
+        }
 
+        addCard(placeVar, addressVar, accessVar, unisexVar, changingVar)
     }
 
-    console.log(restroomResult)
 }
