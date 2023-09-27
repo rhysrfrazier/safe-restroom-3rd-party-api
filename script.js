@@ -36,7 +36,7 @@ function addCard(mapLink, placeVar, addressVar, accessVar, unisexVar, changingVa
     const access = document.createElement("h4")
     access.classList.add("options")
     access.setAttribute("id", "accessible")
-    access.innerHTML = accessVar//create strings for each option that will put the innerHTML you need in here, but make those later in the api call section... each variable in here needs to correspond to a perameter that I can pass the variables in to
+    access.innerHTML = accessVar
     right.appendChild(access)
     const unisex = document.createElement("h4")
     unisex.classList.add("options")
@@ -59,9 +59,24 @@ function removeCards() {
     resultLinks.forEach((link) => link.remove())
 }
 
+function makeLoadText(){
+    loading = document.createElement("h1")
+    loading.setAttribute("id", "loading")
+    loading.innerHTML = "Loading Results..."
+    document.body.appendChild(loading)
+}
+
+function removeLoadText(){
+    loading = document.getElementById("loading")
+    loading.remove()
+}
+
 submitBtn.onclick = async () => {
     const cityInput = document.querySelector("#city").value
     const stateInput = document.querySelector("#state").value
+    
+    removeCards()
+    makeLoadText()
 
     let geoResult = await axios.get(`https://api.api-ninjas.com/v1/geocoding?city=${cityInput}&country=US&state=${stateInput}`,
         { headers: { "X-Api-Key": "EwA0oHXQy43xs6jnEsvICQ==5Bj70iJpnMZ8zfSt"}
@@ -71,8 +86,8 @@ submitBtn.onclick = async () => {
     const long = geoResult.data[0].longitude
 
     const restroomResult = await axios.get(`https://www.refugerestrooms.org/api/v1/restrooms/by_location?lat=${lat}&lng=${long}`)
-
-    removeCards()
+    
+    removeLoadText()
 
     for (let i=0 ; i<restroomResult.data.length ; i++){
         let placeVar =restroomResult.data[i].name //string
