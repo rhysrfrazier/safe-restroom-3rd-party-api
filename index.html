@@ -40,22 +40,25 @@
         <li class="resultCard">
             <div id="left">
                 <h2 id="placeName">
-                    <a href="https://google.com/maps/dir//noodles and company 200 A shorebird street" target="_blank">Noodles & Co.</a>
+                    <a id="mapsLink" href="https://google.com/maps/dir//noodles and company 200 A shorebird street" target="_blank">Noodles & Co.</a>
                 </h2>
                 <p id="address">Address</p>
             </div>
-            <div id="right"><!--This is all messed up on voiceover-->
+            <div id="right">
                 <div id="accessible" class="options">
-                    <p>Accessible: </p>
-                    <p class="y/n" id="yes">YES</p>
+                    <p class="opText">Accessible: </p>
+                    <p class="invisible opText">yes</p>
+                    <img class="icon" src="green_check.svg.png" aria-hidden="true" />
                 </div>
                 <div id="unisex" class="options">
-                    <p>Unisex: </p>
-                    <p class="y/n" id="yes">YES</p>
+                    <p class="opText">Unisex: </p>
+                    <p class="invisible opText">yes</p>
+                    <img class="icon" src="green_check.svg.png" aria-hidden="true" />
                 </div>
-                <div>
-                    <p>Changing Station: </p>
-                    <P class="y/n" id="no">NO</P>
+                <div id="changingStation" class="options">
+                    <p class="opText">Changing Table: </p>
+                    <P class="invisible opText">no</P>
+                    <img class="icon" src="red_x.svg.png" alt="no" aria-hidden="true"/>
                 </div>
         </li>
     </ul>
