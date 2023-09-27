@@ -52,7 +52,7 @@ function addCard(mapLink, placeVar, addressVar, accessVar, unisexVar, changingVa
     document.body.appendChild(resultLink)
 }
 
-addCard("https://google.com/maps/dir//noodles and company 200 A shorebirt street", "Noodles and Company", "200 A Shorebird St", 'Accessible: <img class="icon" src="green_check.svg.png" alt="yes" />', 'Unisex: <img class="icon" src="green_check.svg.png" alt="yes" />', 'Changing Station: <img class="icon" src="red_x.svg.png" alt="no" />')
+//addCard("https://google.com/maps/dir//noodles and company 200 A shorebirt street", "Noodles and Company", "200 A Shorebird St", 'Accessible: <img class="icon" src="green_check.svg.png" alt="yes" />', 'Unisex: <img class="icon" src="green_check.svg.png" alt="yes" />', 'Changing Station: <img class="icon" src="red_x.svg.png" alt="no" />')
 
 function removeCards() {
     const resultLinks = document.querySelectorAll(".resultLink")
@@ -80,6 +80,7 @@ submitBtn.onclick = async () => {
         let accessible = restroomResult.data[i].accessible //bool
         let unisex = restroomResult.data[i].unisex //bool
         let changingStation = restroomResult.data[i].changing_table//bool
+        let mapLink = `https://google.com/maps/dir//${placeVar} ${addressVar}`
         let accessVar
         let unisexVar
         let changingVar
@@ -100,6 +101,6 @@ submitBtn.onclick = async () => {
             changingVar = 'Changing Station: <img class="icon" src="red_x.svg.png" alt="no" />'
         }
 
-        addCard(placeVar, addressVar, accessVar, unisexVar, changingVar)
+        addCard(mapLink, placeVar, addressVar, accessVar, unisexVar, changingVar)
     }
 }
