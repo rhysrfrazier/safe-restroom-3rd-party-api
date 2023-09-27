@@ -1,9 +1,18 @@
 const submitBtn = document.querySelector("#submit")
 
-function addCard(placeVar, addressVar, accessVar, unisexVar, changingVar) {
-    //creating the overall div and setting it's class for styling
+function addCard(mapLink, placeVar, addressVar, accessVar, unisexVar, changingVar) {
+    //creating the overall div and setting it's class for styling - UPDATE: need to go back and make these list items instead for accessibility reasons, i think...
+    const resultLink = document.createElement("a")
+    resultLink.classList.add("resultLink")
+    resultLink.href = mapLink //maplink is a string contingent on api results
+    resultLink.setAttribute("target", "_blank")
+    resultLink.setAttribute("aria-label", "link to google maps")
+    resultLink.setAttribute("role", "link")
+
     const resultCard = document.createElement("div")
     resultCard.classList.add("resultCard")
+    resultCard.setAttribute("aria-label", "result card")
+    resultLink.appendChild(resultCard)
     //creating the "left" div and setting it's id for styling
     const left = document.createElement("div")
     left.setAttribute("id", "left")
@@ -40,16 +49,15 @@ function addCard(placeVar, addressVar, accessVar, unisexVar, changingVar) {
     changingStation.innerHTML = changingVar
     right.appendChild(changingStation)
     //add the whole card to the body
-    document.body.appendChild(resultCard)
+    document.body.appendChild(resultLink)
 }
-// addCard("Place", "XXXX Place, Charlottesville, VA XXXXX", "not accessible", "yes unisex", "no changing station")
-// addCard("Not-house", "6796 Sugar Hollow Rd, Crozet VA 22932", "not accessible", "yes unisex", "no changing station")
+
+addCard("https://google.com/maps/dir//noodles and company 200 A shorebirt street", "Noodles and Company", "200 A Shorebird St", 'Accessible: <img class="icon" src="green_check.svg.png" alt="yes" />', 'Unisex: <img class="icon" src="green_check.svg.png" alt="yes" />', 'Changing Station: <img class="icon" src="red_x.svg.png" alt="no" />')
 
 function removeCards() {
-    const resultCards = document.querySelectorAll(".resultCard")
-    resultCards.forEach((card) => card.remove())
+    const resultLinks = document.querySelectorAll(".resultLink")
+    resultLinks.forEach((link) => link.remove())
 }
-// removeCards()
 
 submitBtn.onclick = async () => {
     const cityInput = document.querySelector("#city").value

@@ -49,6 +49,12 @@ p{
     color: #1a1b41;
 }
 
+.resultLink{
+    align-self: center;
+    text-decoration: none;
+    color:#1a1b41;
+}
+
 #city{
     margin-top:0;
 }
