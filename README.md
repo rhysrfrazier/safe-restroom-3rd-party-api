@@ -27,9 +27,7 @@ Between maintenance and possible improvements to be made, no project is every tr
   - I'm reluctant to make the blanket statement that the page is accessible without doing a full audit based on WCAG Standards. However, the project does achieve some key goals related to accessibility, including tested functionality with a screen reader, large buttons, dyslexia-friendly font, and basic, though not fully intuitive, functionality for keyboard users.  
 - **Discreet Tab Title**
   - Admittedly, the tab will let anyone looking at the screen know that the user has to go to the bathroom, but it at least won't out them in a potentially unsafe setting.
-##
-
-[Check out the page for yourself!](https://gotta_go.surge.sh/) 
+## [Check out the page for yourself!](https://gotta_go.surge.sh/) 
 <img width="715" alt="screenshot of project page, showing title, city and state input field, submit button, and more resources link" src="https://github.com/rhysrfrazier/safe-restroom-3rd-party-api/assets/140181425/9736d253-39d6-400f-ae94-fed3a399062f">
 <img width="715" alt="Screenshot of project page showing first result cards for Crozet, Virginia" src="https://github.com/rhysrfrazier/safe-restroom-3rd-party-api/assets/140181425/562255e3-b43d-48c0-8aed-a6327d8987a9">
 
