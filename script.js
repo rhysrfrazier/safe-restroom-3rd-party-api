@@ -77,7 +77,7 @@ function addCard(mapLink, placeVar, addressVar, srAccessVar, iconAccessVar, srUn
     changeIcon.classList.add("icon")
     changeIcon.setAttribute("aria-hidden", "true")
     changeOp.appendChild(changeIcon)
-    //adding an event listener to the whole card that will mean clicking the card is the same as clicking the link
+    //making the card itself clickable
     resultCard.addEventListener("click", () => link.click())
 }
 
@@ -117,11 +117,11 @@ submitBtn.onclick = async () => {
     removeLoadText()
 
     for (let i=0 ; i<restroomResult.data.length ; i++){
-        let placeVar =restroomResult.data[i].name //string
-        let addressVar = restroomResult.data[i].street //string
-        let accessible = restroomResult.data[i].accessible //bool
-        let unisex = restroomResult.data[i].unisex //bool
-        let changingStation = restroomResult.data[i].changing_table//bool
+        let placeVar =restroomResult.data[i].name
+        let addressVar = restroomResult.data[i].street
+        let accessible = restroomResult.data[i].accessible
+        let unisex = restroomResult.data[i].unisex
+        let changingStation = restroomResult.data[i].changing_table
         let mapLink = `https://google.com/maps/dir//${placeVar} ${addressVar}`
         let srAccessVar
         let iconAccessVar
@@ -129,7 +129,7 @@ submitBtn.onclick = async () => {
         let iconUnisexVar
         let srChangingVar
         let iconChangingVar
-        //there has to be a better way to do this next part but for now this will get the job done
+
         if(accessible){
             srAccessVar = "yes"
             iconAccessVar = "green_check.svg.png"
